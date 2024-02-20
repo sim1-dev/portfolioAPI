@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -25,11 +26,11 @@ public class UsersController : ControllerBase, IBasePortfolioController<User, Us
         this._userManager = userManager;
     }
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<UserDto>>> Get() {
-        var usersQuery = _context.Users.AsQueryable();
+    public async Task<ActionResult<Collection<UserDto>>> Get() {
+        IQueryable<User> usersQuery = _context.Users.AsQueryable();
 
-        var users = await usersQuery.ToListAsync();
-        var usersDto = _mapper.Map<IEnumerable<UserDto>>(users);
+        List<User> users = await usersQuery.ToListAsync();
+        List<UserDto> usersDto = _mapper.Map<List<UserDto>>(users);
         return Ok(usersDto);
     }
 
@@ -40,7 +41,7 @@ public class UsersController : ControllerBase, IBasePortfolioController<User, Us
         if (user is null)
             return NotFound();
 
-        var userDto = _mapper.Map<UserDto>(user);
+        UserDto userDto = _mapper.Map<UserDto>(user);
         return Ok(userDto);
     }
     [HttpPost]
@@ -48,7 +49,7 @@ public class UsersController : ControllerBase, IBasePortfolioController<User, Us
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var user = _mapper.Map<User>(userDto);
+        User user = _mapper.Map<User>(userDto);
 
         try {
             IdentityResult result = await _userManager.CreateAsync(user, "Password1!");
@@ -58,7 +59,7 @@ public class UsersController : ControllerBase, IBasePortfolioController<User, Us
 
             await _userManager.AddToRoleAsync(user, "User");
 
-            var newUserDto = _mapper.Map<UserDto>(user);
+            UserDto newUserDto = _mapper.Map<UserDto>(user);
 
             return CreatedAtAction(nameof(Find), new { id = user.Id }, newUserDto);
         }

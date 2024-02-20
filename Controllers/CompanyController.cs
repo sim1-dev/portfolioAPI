@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +24,7 @@ public class CompanyController : ControllerBase, IBasePortfolioController<Compan
 
     [HttpGet]
     [AllowAnonymous]
-    public async Task<ActionResult<IEnumerable<CompanyDto>>> Get() {
+    public async Task<ActionResult<Collection<CompanyDto>>> Get() {
         List<Company> companies = await this._context.Companies
             .Include(company => company.Projects!)
             .ThenInclude(project => project.Technologies)
@@ -32,7 +33,7 @@ public class CompanyController : ControllerBase, IBasePortfolioController<Compan
         if(companies is null)
             return NotFound();
 
-        return Ok(_mapper.Map<IEnumerable<CompanyDto>>(companies));
+        return Ok(_mapper.Map<List<CompanyDto>>(companies));
     }
 
     [HttpGet("{id:int}")]

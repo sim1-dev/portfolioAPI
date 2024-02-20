@@ -1,4 +1,5 @@
 // so simple doesn't require mappings
+using System.Collections.ObjectModel;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +25,7 @@ public class TechnologyController : ControllerBase, IBasePortfolioController<Tec
 
     [HttpGet]
     [AllowAnonymous]
-    public async Task<ActionResult<IEnumerable<TechnologyDto>>> Get() {
+    public async Task<ActionResult<Collection<TechnologyDto>>> Get() {
         List<Technology> technologies = await this._context.Technologies.ToListAsync();
 
         List<TechnologyDto> technologyDtos = _mapper.Map<List<TechnologyDto>>(technologies);
