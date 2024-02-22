@@ -80,7 +80,8 @@ public class BaseContext: IdentityDbContext {
             new Technology { Id = 48, Name = "Electron" },
             new Technology { Id = 49, Name = "Cordova" },
             new Technology { Id = 50, Name = "Capacitor" },
-            new Technology { Id = 51, Name = "PHP" }
+            new Technology { Id = 51, Name = "PHP" },
+            new Technology { Id = 52, Name = "Nest.js" }
         );
     }
 
@@ -142,9 +143,109 @@ public class BaseContext: IdentityDbContext {
     }
 
     private void seedProjectTechnologies(ModelBuilder modelBuilder) {
+        // TODO enum fixed Technologies, base Projects
          modelBuilder.Entity("ProjectTechnology").HasData(
+            // ShareLock
             new { ProjectsId = 1, TechnologiesId = 3 },
-            new { ProjectsId = 1, TechnologiesId = 51 }
+            new { ProjectsId = 1, TechnologiesId = 51 },
+
+            // GSE SuiteCRM
+            new { ProjectsId = 2, TechnologiesId = 45 },
+            new { ProjectsId = 2, TechnologiesId = 51 },
+            new { ProjectsId = 2, TechnologiesId = 16 },
+
+            // Tableau
+            new { ProjectsId = 3, TechnologiesId = 11 },
+            new { ProjectsId = 3, TechnologiesId = 16 },
+            new { ProjectsId = 3, TechnologiesId = 18 },
+            new { ProjectsId = 3, TechnologiesId = 19 },
+            new { ProjectsId = 3, TechnologiesId = 20 },
+            new { ProjectsId = 3, TechnologiesId = 38 },
+            new { ProjectsId = 3, TechnologiesId = 51 },
+
+            // Bacheca
+            new { ProjectsId = 4, TechnologiesId = 11 },
+            new { ProjectsId = 4, TechnologiesId = 16 },
+            new { ProjectsId = 4, TechnologiesId = 18 },
+            new { ProjectsId = 4, TechnologiesId = 19 },
+            new { ProjectsId = 4, TechnologiesId = 20 },
+            new { ProjectsId = 4, TechnologiesId = 38 },
+            new { ProjectsId = 4, TechnologiesId = 51 },
+
+            // Netbook
+            new { ProjectsId = 5, TechnologiesId = 4 },
+            new { ProjectsId = 5, TechnologiesId = 40 },
+            new { ProjectsId = 5, TechnologiesId = 41 },
+
+            // NewsletterPro
+            new { ProjectsId = 6, TechnologiesId = 4 },
+
+            // SmallApp
+            new { ProjectsId = 7, TechnologiesId = 4 },
+
+            // ASM
+            new { ProjectsId = 8, TechnologiesId = 4 },
+
+            // ORD review
+            new { ProjectsId = 9, TechnologiesId = 4 },
+
+            // Ventures
+            new { ProjectsId = 10, TechnologiesId = 4 },
+
+            // ORD remake
+            new { ProjectsId = 11, TechnologiesId = 4 },
+
+            // Foodlovery
+            
+            new { ProjectsId = 12, TechnologiesId = 1 },
+            new { ProjectsId = 12, TechnologiesId = 30 },
+            new { ProjectsId = 12, TechnologiesId = 42 },
+            new { ProjectsId = 12, TechnologiesId = 52 },
+
+            // Console regia
+            new { ProjectsId = 13, TechnologiesId = 1 },
+            new { ProjectsId = 13, TechnologiesId = 5 },
+            new { ProjectsId = 13, TechnologiesId = 39 },
+
+            // Intranet
+            new { ProjectsId = 14, TechnologiesId = 1 },
+            new { ProjectsId = 14, TechnologiesId = 2 },
+            new { ProjectsId = 14, TechnologiesId = 11 },
+            new { ProjectsId = 14, TechnologiesId = 18 },
+            new { ProjectsId = 14, TechnologiesId = 48 },
+            new { ProjectsId = 14, TechnologiesId = 49 },
+            new { ProjectsId = 14, TechnologiesId = 50 },
+
+            // VDesk Taranto
+            new { ProjectsId = 15, TechnologiesId = 1 },
+            new { ProjectsId = 15, TechnologiesId = 2 },
+            new { ProjectsId = 15, TechnologiesId = 20 },
+            new { ProjectsId = 15, TechnologiesId = 33 },
+            new { ProjectsId = 15, TechnologiesId = 34 },
+            new { ProjectsId = 15, TechnologiesId = 38 },
+            new { ProjectsId = 15, TechnologiesId = 43 },
+            new { ProjectsId = 15, TechnologiesId = 44 },
+
+            // VDesk Bologna
+            new { ProjectsId = 16, TechnologiesId = 1 },
+            new { ProjectsId = 16, TechnologiesId = 2 },
+            new { ProjectsId = 16, TechnologiesId = 20 },
+            new { ProjectsId = 16, TechnologiesId = 33 },
+            new { ProjectsId = 16, TechnologiesId = 34 },      
+            new { ProjectsId = 16, TechnologiesId = 38 },
+            new { ProjectsId = 16, TechnologiesId = 43 },
+            new { ProjectsId = 16, TechnologiesId = 44 },
+
+            // TeamSystem
+            new { ProjectsId = 17, TechnologiesId = 1 },
+            new { ProjectsId = 17, TechnologiesId = 6 },
+            new { ProjectsId = 17, TechnologiesId = 7 },  
+            new { ProjectsId = 17, TechnologiesId = 8 },
+            new { ProjectsId = 17, TechnologiesId = 9 },
+            new { ProjectsId = 17, TechnologiesId = 13 },
+            new { ProjectsId = 17, TechnologiesId = 28 },
+            new { ProjectsId = 17, TechnologiesId = 29 },
+            new { ProjectsId = 17, TechnologiesId = 31 }
         );
     }
 
